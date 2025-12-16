@@ -23,7 +23,7 @@ games_data = games_data %>%
   mutate(
     created_at = as.numeric(created_at),
     last_move_at = as.numeric(last_move_at),
-    duration_s = (last_move_at - created_at) / 1000  # в eloундах
+    duration_s = (last_move_at - created_at) / 1000  # в секундах
   )
 
 rated_games_data_clean = games_data %>% # Убираем NA и отрицательные длительности
@@ -75,7 +75,7 @@ acf_summary
 
 plot_autocorrelation(rated_games_data_clean, "black_rating")
 
-# Берём подряд 100 значений времени партии
+# Берём подряд 100 значений
 n_total = 100
 if(nrow(rated_games_data_clean) < n_total){
   stop("В файле меньше 100 игр для построения временного ряда. Нужно >=100.")
@@ -85,7 +85,7 @@ first_100games = rated_games_data_clean %>% slice(1:n_total) %>%
   mutate(index = 1:n())
 
 # Быстрая статистика
-cat("Выбрано", n_total, "игр. Длительность (elo) — min/mean/median/max:\n")
+cat("Выбрано", n_total, "игр. Рейтинг elo — min/mean/median/max:\n")
 print(summary(first_100games$black_rating))
 # View(first_100games)
 
@@ -364,3 +364,4 @@ metrics_df <- bind_rows(
   arrange(RMSE)
 
 print(metrics_df)
+
