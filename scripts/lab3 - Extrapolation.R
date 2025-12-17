@@ -17,7 +17,7 @@ set.seed(123) # для knn и других методов, завязанных 
 # https://www.kaggle.com/datasets/datasnaek/chess: 
 # От автора датасета "This is a set of just over 20,000 games collected from a selection of users on the site Lichess.org
 # I collected this data using the Lichess API, which enables collection of any given users game history".
-games_data = read.csv("games.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+games_data = read.csv("lab1 - games.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 View(games_data)
 games_data = games_data %>%
   mutate(
@@ -364,4 +364,5 @@ metrics_df <- bind_rows(
   arrange(RMSE)
 
 print(metrics_df)
+
 
