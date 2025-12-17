@@ -18,7 +18,7 @@ set.seed(123)
 # It includes variables such as study habits, attendance, parental involvement, access to resources, 
 # extracurricular activities, sleep hours, motivation, and socio-economic background. 
 # Academic results are measured through previous and final exam scores
-students_data = read.csv("StudentPerformanceFactors.csv", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+students_data = read.csv("lab4 - StudentPerformanceFactors.csv", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 glimpse(students_data)
 summary(students_data)
 
@@ -367,3 +367,4 @@ metrics_all <- bind_rows(
 )
 
 print(metrics_all)
+
